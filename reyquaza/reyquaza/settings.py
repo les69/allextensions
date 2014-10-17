@@ -14,6 +14,7 @@ from os.path import abspath, dirname, basename, join, exists
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ROOT_PATH = abspath(dirname(__file__))
+SETTINGS_PATH = dirname(__file__)
 
 
 
@@ -88,3 +89,7 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    join(SETTINGS_PATH, '../entei/static/'),
+)

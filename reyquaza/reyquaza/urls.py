@@ -1,5 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,6 +14,12 @@ urlpatterns = patterns('',
 
 )
 
+
 urlpatterns += patterns('suicune.views',
-                        url(r'^$', 'index', name='index')
                         )
+urlpatterns += patterns('entei.views',
+                        url(r'^$', 'index', name='index'),
+                        url(r'^search/(?P<extension_name>\S+)/$', 'search_extension', name='search_extension'),
+
+                        )
+urlpatterns += staticfiles_urlpatterns()
